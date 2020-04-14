@@ -560,6 +560,12 @@ terminal_screen_draw (GtkWidget *widget,
   cairo_destroy (ctx);
   cairo_surface_destroy (surface);
 
+  // Draw borderlines
+  cairo_set_source_rgba(cr, 0.3, 0.4, 0.6, 0.5);
+  cairo_rectangle(cr, 0, 0, width, height);
+  cairo_set_line_width(cr, 2);
+  cairo_stroke(cr);
+
   cairo_restore (cr);
 
   g_signal_connect (G_OBJECT (screen->terminal), "draw",
